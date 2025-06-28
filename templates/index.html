@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Школа №30</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link
+            href="{{ url_for('static', filename='assets/style/style.css') }}"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            background-color: #cc5577;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%23cc5577' width='11' height='11'/%3E%3Crect fill='%23ce5776' x='10' width='11' height='11'/%3E%3Crect fill='%23d05a76' y='10' width='11' height='11'/%3E%3Crect fill='%23d15c75' x='20' width='11' height='11'/%3E%3Crect fill='%23d35f74' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23d46174' y='20' width='11' height='11'/%3E%3Crect fill='%23d66473' x='30' width='11' height='11'/%3E%3Crect fill='%23d76673' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%23d96972' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%23da6c72' y='30' width='11' height='11'/%3E%3Crect fill='%23db6e71' x='40' width='11' height='11'/%3E%3Crect fill='%23dc7171' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%23dd7471' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%23de7671' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%23df7971' y='40' width='11' height='11'/%3E%3Crect fill='%23e07c71' x='50' width='11' height='11'/%3E%3Crect fill='%23e17e71' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%23e28171' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%23e38471' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%23e38771' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%23e48972' y='50' width='11' height='11'/%3E%3Crect fill='%23e58c72' x='60' width='11' height='11'/%3E%3Crect fill='%23e58f73' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23e69173' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%23e69474' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%23e79775' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%23e79a75' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23e89c76' x='70' width='11' height='11'/%3E%3Crect fill='%23e89f77' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%23e8a278' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%23e9a47a' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23e9a77b' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23e9aa7c' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23e9ac7e' x='80' width='11' height='11'/%3E%3Crect fill='%23eaaf7f' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23eab281' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23eab482' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23eab784' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23eaba86' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23ebbc88' x='90' width='11' height='11'/%3E%3Crect fill='%23ebbf8a' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23ebc18c' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23ebc48e' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23ebc790' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23ebc992' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23ebcc94' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23ebce97' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23ebd199' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23ecd39c' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23ecd69e' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23ecd8a1' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23ecdba4' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23ecdda6' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23ece0a9' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23ede2ac' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23ede4af' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23ede7b2' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23ede9b5' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23eeecb8' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23EEB' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+            color: white; /* желательно, чтобы текст читался */
+        }
+
+        /* Глобально, для всех слайдов карусели */
+        .carousel-item img {
+            width: 100%; /* занимать всю ширину контейнера */
+            height: 800px; /* или любая фиксированная/макс. высота */
+            object-fit: cover; /* обрезать, сохраняя пропорции */
+        }
+
+        /* Адаптация на телефон — чуть пониже */
+        @media (max-width: 576px) {
+            .carousel-item img {
+                height: 400px; /* поменьше для узких экранов */
+            }
+        }
+
+        .carousel-item .row {
+            margin-top: -1rem;
+            margin-bottom: -1rem;
+        }
+
+        /* Убираем лишние отступы у .carousel-inner */
+        .carousel-inner {
+            padding: 0;
+        }
+
+        /* Кнопка не «растекается» */
+        .btn-primary {
+            min-width: 180px;
+        }
+
+        #directorModal .modal-content {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* На десктопе показываем сразу полный текст и прячем превью + кнопку */
+        @media (max-width: 767.98px) {
+            .description-preview {
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* 2 строки */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+
+        /* На десктопе показываем весь текст сразу */
+        @media (min-width: 768px) {
+            .description-preview,
+            .btn[data-bs-toggle="collapse"] {
+                display: none !important;
+            }
+
+            .description-full {
+                display: block !important;
+                visibility: visible;
+                height: auto !important;
+            }
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-2" style="background-color: #00695C;">
+    <div class="container-fluid px-4">
+        <!-- Логотип слева -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="{{ url_for('static', filename='assets/img/gerb-school.png') }}" alt="Герб школы" width="40"
+                 height="40" class="me-2">
+            <span class="fw-bold text-white">Школа №30</span>
+        </a>
+
+        <!-- Кнопка бургер -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Меню -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://ul-gimnaziya30.gosuslugi.ru/svedeniya-ob-obrazovatelnoy-organizatsii/osnovnye-svedeniya/">О
+                    школе</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#teachersCarousel">Преподаватели</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="https://sgo.cit73.ru/">Расписание</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="documents.html">Документы</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+
+            <!-- Логотип справа -->
+            <a href="https://nationalprojects.ru/" target="_blank" class="d-none d-lg-block">
+                <img src="{{ url_for('static', filename='assets/img/national-projects-logo.png') }}" alt="Нацпроекты"
+                     height="40">
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Контент -->
+<main class="container my-5">
+    <div class="p-4 rounded-4 shadow-sm" style="min-height: 300px; background: #E8F5E9; ">
+        <div class="row align-items-stretch">
+            <!-- Фото -->
+            <div class="col-md-4">
+                <img
+                        src="{{ url_for('static', filename='assets/img/school.jpg') }}"
+                        class="img-fluid h-100 w-100 rounded-4"
+                        style="object-fit: cover;"
+                        alt="Школа"
+                >
+            </div>
+
+            <!-- Текст -->
+            <div class="col-md-8 d-flex flex-column justify-content-center">
+                <h1 class="h3 text-dark">Добро пожаловать в Школу №30</h1>
+
+                <p class="lead text-dark fw-bold d-md-none mb-2">
+                    Начальная школа № 30 была организована в послевоенное время в посёлке Винновка.
+                </p>
+
+                <!-- Скрываться будет всё, что дальше -->
+                <div class="collapse d-md-none" id="fullDesc">
+                    <p class="lead text-dark fw-bold mb-2 " id="fullDesc">
+                        В 1970 году в новом микрорайоне Железнодорожного района г. Ульяновска было построено здание для
+                        средней образовательной школы.
+                    </p>
+                    <p class="lead text-dark fw-bold mb-0">
+                        Муниципальное бюджетное общеобразовательное учреждение гимназия № 30 переименовано в
+                        муниципальное бюджетное общеобразовательное учреждение города Ульяновска «Гимназия № 30 им.
+                        Железной Дивизии» на основании распоряжения Управления образования администрации города
+                        Ульяновска №172 от 25.02.2021 г. «О переименовании муниципального бюджетного
+                        общеобразовательного учреждения».
+                    </p>
+                    <p>
+                        Структура гимназии: начальная школа (1-4 классы), среднее звено(5-9 классы), старшее
+                        звено(старшая школа 10-11 классы).
+                    </p>
+                </div>
+
+                <!-- Кнопка (только на мобилке) -->
+                <button
+                        class="btn btn-outline-primary btn-sm mt-2 d-md-none"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#fullDesc"
+                        aria-expanded="false"
+                        aria-controls="fullDesc"
+                        id="toggleDescBtn"
+                >
+                    …читать далее
+                </button>
+
+                <!-- Полный текст для десктопа -->
+                <div class="d-none d-md-block">
+                    <p class="lead text-dark fw-bold mb-2">
+                        Начальная школа №30 была организована в послевоенное время в посёлке Винновка.
+                        В 1970 году в новом микрорайоне Железнодорожного района г. Ульяновска было построено здание для
+                        средней школы.
+                    </p>
+                    <p class="lead text-dark fw-bold mb-0">
+                        Муниципальное бюджетное общеобразовательное учреждение гимназия № 30 переименовано в
+                        муниципальное бюджетное общеобразовательное учреждение города Ульяновска «Гимназия № 30 им.
+                        Железной Дивизии» на основании распоряжения Управления образования администрации города
+                        Ульяновска №172 от 25.02.2021 г. «О переименовании муниципального бюджетного
+                        общеобразовательного учреждения».
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid px-0 mt-5 ">
+        <div id="schoolCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded-4">
+                {% for e in events %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <a href="{% if e.link %}
+                   {{ e.link }}
+                 {% else %}
+                   {{ url_for('event_detail', event_id=e.id) }}
+                 {% endif %}"
+                           target="{% if e.link %}_blank{% else %}_self{% endif %}">
+                            <img src="{{ url_for('static', filename=e.image or 'assets/img/placeholder.jpg') }}"
+                                 class="d-block w-100"
+                                 alt="{{ e.title }}">
+                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                                <h5>{{ e.title }}</h5>
+                                <p>{{ e.description }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Кнопки -->
+            <button class="carousel-control-prev" data-bs-target="#schoolCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-target="#schoolCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+
+            <!-- Индикаторы -->
+            <div class="carousel-indicators">
+                {% for e in events %}
+                    <button type="button"
+                            data-bs-target="#schoolCarousel"
+                            data-bs-slide-to="{{ loop.index0 }}"
+                            {% if loop.first %}class="active"{% endif %}>
+                    </button>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <section class="container my-5">
+        <div class="p-4 rounded-4 shadow-sm" style="background: #E8F5E9">
+            <h2 class="mb-4 fw-bold text-dark">Руководство</h2>
+
+            <div class="row align-items-start g-4">
+                <!-- Фото директора -->
+                <div class="col-md-3 text-center">
+                    <img
+                            src="{{ url_for('static', filename='assets/img/director.jpg') }}"
+                            class="img-fluid rounded-4"
+                            alt="Директор"
+                            style="max-width:240px"
+                    >
+                </div>
+
+                <!-- Контент: ФИО, телефон, часы, и обращение -->
+                <div class="col-md-8 text-dark">
+                    <h5 class="fw-semibold mb-1">Чирковская Наталья Александровна</h5>
+                    <p class="text-muted mb-2">Директор гимназии</p>
+
+                    <p><strong>Телефон:</strong><br>8 (8422) 73-76-61</p>
+                    <p><strong>Часы приёма:</strong><br>Понедельник: 16:00–17:00</p>
+
+                    <!-- Для десктопа: показываем обращение сразу -->
+                    <div class="mt-4 d-none d-md-block">
+                        <h5 class="fw-bold text-primary">Дорогие друзья!</h5>
+                        <p>
+                            Я рада приветствовать Вас на официальном сайте нашей гимназии!
+                            Информация, расположенная на страницах сайта, позволит познакомиться с историей гимназии, её
+                            традициями...
+                        </p>
+                        <p>
+                            В нашей гимназии трудится талантливый, ответственный, сильный и слаженный педагогический
+                            коллектив, который прилагает немало усилий к тому, чтобы сплотить вокруг себя всех детей и
+                            их родителей. Наша цель – обеспечить качественное образование, для того, чтобы каждый
+                            обучающийся гимназии смог полностью реализовать себя как в учебе, так и в общественной
+                            жизни. Мы делаем акцент на развитии всесторонне развитой личности и ставим себе такую
+                            задачу, при которой каждый гимназист был готов не только к поступлению в высшие и средние
+                            профессиональные учебные заведения, но и к жизни в современном мире. </p>
+                    </div>
+
+                    <!-- Для мобильных: кнопка открытия модалки -->
+                    <div class="d-block d-md-none mt-4">
+                        <button
+                                class="btn btn-sm btn-outline-primary"
+                                data-bs-toggle="modal"
+                                data-bs-target="#directorModal"
+                        >
+                            Обращение директора
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div
+            class="modal fade"
+            id="directorModal"
+            tabindex="-1"
+            aria-labelledby="directorModalLabel"
+            aria-hidden="true"
+    >
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="directorModalLabel">Обращение директора</h5>
+                    <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Закрыть"
+                    ></button>
+                </div>
+                <div class="modal-body text-dark">
+                    <h5 class="fw-bold">Дорогие друзья!</h5>
+                    <p>
+                        Я рада приветствовать Вас на официальном сайте нашей гимназии!
+                        Информация, расположенная на страницах сайта, позволит познакомиться с историей гимназии, её
+                        традициями и ценностями…
+                    </p>
+                    <p>
+                        В нашей гимназии трудится талантливый, ответственный, сильный и слаженный педагогический
+                        коллектив, который прилагает немало усилий к тому, чтобы сплотить вокруг себя всех детей и их
+                        родителей. Наша цель – обеспечить качественное образование, для того, чтобы каждый обучающийся
+                        гимназии смог полностью реализовать себя как в учебе, так и в общественной жизни. Мы делаем
+                        акцент на развитии всесторонне развитой личности и ставим себе такую задачу, при которой каждый
+                        гимназист был готов не только к поступлению в высшие и средние профессиональные учебные
+                        заведения, но и к жизни в современном мире. </p>
+                </div>
+                <div class="modal-footer">
+                    <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                    >
+                        Закрыть
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="container my-5">
+        <div class="p-4 rounded-4 shadow-lg" style="background: #E8F5E9">
+            <h2 class="fw-bold mb-4 text-dark text-center">Педагогический состав</h2>
+
+            <div id="teachersCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    {% for t in teachers %}
+                        <div class="carousel-item {% if loop.first %}active{% endif %}">
+                            <div class="row gx-0 align-items-center">
+                                <!-- Картинка -->
+                                <div class="col-md-5">
+                                    <img
+                                            src="{{ url_for('static', filename='teachers/' + t.photo) }}"
+                                            class="img-fluid rounded-4"
+                                            style="max-height: 700px; object-fit: cover;"
+                                            alt="{{ t.name }}">
+                                </div>
+                                <!-- Текстовая часть -->
+                                <div class="col-md-7">
+                                    <div class="p-4" style="background: rgba(255,255,255,0.9);">
+                                        <h3 class="fw-bold mb-2 text-dark">{{ t.name }}</h3>
+                                        <p class="text-secondary mb-1">{{ t.position }}</p>
+                                        <p class="mb-3 text-dark">Опыт: {{ t.experience }} лет</p>
+
+                                        {% if t.link %}
+                                            <a
+                                                    href="{{ t.link }}"
+                                                    target="_blank"
+                                                    class="btn btn-primary">
+                                                Профиль на Госуслугах
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+                <button
+                        class="carousel-control-prev"
+                        type="button"
+                        data-bs-target="#teachersCarousel"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+                </button>
+                <button
+                        class="carousel-control-next"
+                        type="button"
+                        data-bs-target="#teachersCarousel"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Подвал -->
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 Школа №30. Все права защищены.</p>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var collapseEl = document.getElementById('fullDesc');
+        var btn = document.getElementById('toggleDescBtn');
+        // Когда разворачивается
+        collapseEl.addEventListener('show.bs.collapse', function () {
+            btn.textContent = 'Скрыть';
+        });
+        // Когда сворачивается
+        collapseEl.addEventListener('hide.bs.collapse', function () {
+            btn.textContent = '…читать далее';
+        });
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

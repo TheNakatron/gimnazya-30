@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Школа №123</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #330033;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23404' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23505'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: auto;
+            color: white; /* желательно, чтобы текст читался */
+        }
+    </style>
+
+</head>
+<body>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-2" style="background-color: #ffffff;">
+    <div class="container-fluid px-4">
+        <!-- Логотип слева -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="assets/img/gerb-school.png" alt="Герб школы" width="40" height="40" class="me-2">
+            <span class="fw-bold text-primary">Школа №30</span>
+        </a>
+
+        <!-- Кнопка бургер -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Меню -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="about.html">О школе</a></li>
+                <li class="nav-item"><a class="nav-link" href="teachers.html">Преподаватели</a></li>
+                <li class="nav-item"><a class="nav-link" href="schedule.html">Расписание</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="documents.html">Документы</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+
+            <!-- Логотип справа -->
+            <a href="https://nationalprojects.ru/" target="_blank" class="d-none d-lg-block">
+                <img src="assets/img/national-projects-logo.png" alt="Нацпроекты" height="40">
+            </a>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<!-- Контент -->
+<main class="container my-5">
+    <div class="col-md-8">
+        <h1>Добро пожаловать в Школу №30</h1>
+    </div>
+    <div class="row align-items-center">
+        <div class="col-md-4">
+            <img src="assets/img/school.jpg" class="img-fluid rounded" alt="Школа">
+        </div>
+
+        <div class="col-md-8">
+
+            <p class="lead">
+                Начальная школа №30 была организована в послевоенное время в посёлке Винновка.
+                В 1970 году в новом микрорайоне Железнодорожного района г. Ульяновска было построено здание для средней образовательной школы.</p>
+
+            <p class="lead">
+                Муниципальное бюджетное общеобразовательное учреждение гимназия № 30 переименовано в муниципальное бюджетное общеобразовательное учреждение города Ульяновска «Гимназия № 30 им. Железной Дивизии» на основании распоряжения Управления образования администрации города Ульяновска №172 от 25.02.2021 г. «О переименовании муниципального бюджетного общеобразовательного учреждения».
+            </p>
+
+            <p class="lead">
+                Структура гимназии: начальная школа (1-4 классы), среднее звено(5-9 классы), старшее звено(старшая школа 10-11 классы).
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0">
+        <div id="schoolCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- Слайд 1 -->
+                <div class="carousel-item active">
+                    <a href="news-event1.html">
+                        <img src="assets/img/drones.jpg" class="d-block w-100" alt="Событие 1">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                            <h5>Последний звонок</h5>
+                            <p>Торжественная линейка 25 мая</p>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Слайд 2 -->
+                <div class="carousel-item">
+                    <a href="news-event2.html">
+                        <img src="assets/img/drone2.jpg" class="d-block w-100" alt="Событие 2">
+                        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+                            <h5>День науки</h5>
+                            <p>Интерактивные выставки, робототехника</p>
+                        </div>
+                    </a>
+                </div>
+
+            <!-- Кнопки управления -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#schoolCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Назад</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#schoolCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Вперёд</span>
+            </button>
+
+            <!-- Индикаторы (точки) -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#schoolCarousel" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#schoolCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#schoolCarousel" data-bs-slide-to="2"></button>
+            </div>
+        </div>
+    </div>
+
+        <section class="container my-5">
+            <div class="p-4 rounded-4" style="background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(6px); color: #000;"><h2 class="mb-4 fw-bold">Руководство</h2>
+
+                <div class="bg-light rounded-4 shadow-sm p-4 d-flex flex-column flex-md-row align-items-center gap-4">
+                    <!-- Фото -->
+                    <div class="flex-shrink-0">
+                        <img src="assets/img/director.jpg" alt="Директор" class="img-fluid rounded-4"
+                             style="max-width: 240px;">
+                    </div>
+
+                    <!-- Информация -->
+                    <div>
+                        <h5 class="fw-semibold mb-1">Чирковская Наталья Александровна</h5>
+                        <p class="text-muted mb-2">Директор гимназии</p>
+
+                        <p><strong>Телефон:</strong><br>8 (8422) 73-76-61</p>
+                        <p><strong>Часы приёма:</strong><br>Понедельник: 16:00–17:00</p>
+
+                        <h5 class="text-primary fw-bold mt-4">Дорогие друзья!</h5>
+                        <p class="fw-bold">
+                            Я рада приветствовать Вас на официальном сайте нашей гимназии!
+                        </p>
+
+                        <p>
+                            Информация, расположенная на страницах сайта, позволит познакомиться с историей нашей
+                            гимназии, её традициями и ценностями, чем живёт школа, порадоваться нашим достижениям и
+                            победам, вместе с детьми побывать на интересных интеллектуальных конкурсах, мероприятиях, а
+                            у педагогов узнать последние педагогические идеи, а также
+                            <em>ознакомиться с нормативными документами образовательного учреждения, графиком работы,
+                                расписанием уроков и кружков</em>. Мы всегда открыты и будем рады, если сайт станет
+                            продолжением общения с нашим коллективом.
+                        </p>
+
+                        <p>
+                            Главная точка отсчёта в нашей школе — это ребёнок! В нашей гимназии трудится талантливый,
+                            ответственный, сильный и слаженный педагогический коллектив, который прилагает немало усилий
+                            к тому, чтобы окружить заботой всех детей и их родителей.
+                        </p>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container my-5">
+            <div class="p-5 rounded-4 bg-white shadow-lg">
+                <h2 class="fw-bold mb-4 text-dark text-center">Педагогический состав</h2>
+
+                <div id="teachersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+                    <div class="carousel-inner">
+                        {% for t in teachers %}
+                        <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                            <div class="row align-items-center">
+                                <div class="col-md-5 text-center mb-4 mb-md-0">
+                                    <img src="{{ url_for('static', filename='teachers/' + t.photo) }}"
+                                         class="img-fluid rounded-4 shadow" alt="{{ t.name }}">
+                                </div>
+                                <div class="col-md-7">
+                                    <h3 class="fw-bold text-dark">{{ t.name }}</h3>
+                                    <h5 class="text-secondary mb-3">{{ t.position }}</h5>
+                                    <p class="fs-5 text-dark">{{ t.experience }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#teachersCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+                        <span class="visually-hidden">Назад</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#teachersCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+                        <span class="visually-hidden">Вперёд</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="alert alert-info mt-4">
+        📢 Следующая родительская встреча — 1 июля в 18:00 в актовом зале.
+    </div>
+
+</main>
+
+<!-- Подвал -->
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 Школа №30. Все права защищены.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
