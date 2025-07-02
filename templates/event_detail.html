@@ -3,94 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ event.title }}</title>
+  <title>Детали события</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <style>
-    /* ------------------------------------------------------------
-       Контейнер с «резервированием» высоты для 16×9
-    ------------------------------------------------------------ */
-    .ratio-16x9 {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%; /* (9/16)*100 */
-      overflow: hidden;
-    }
-    .ratio-16x9 img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
+    /* для основного изображения */
+    .ratio-16x9 { position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; }
+    .ratio-16x9 img { position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; }
 
-    /* ------------------------------------------------------------
-       Контейнер для галереи 4×3
-    ------------------------------------------------------------ */
-    .ratio-4x3 {
-      position: relative;
-      width: 100%;
-      padding-top: 75%; /* (3/4)*100 */
-      overflow: hidden;
-    }
-    .ratio-4x3 img {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
+    /* мини-превью 4×3 */
+    .ratio-4x3 { position: relative; width: 100%; padding-top: 75%; overflow: hidden; }
+    .ratio-4x3 img { position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; }
 
-    /* Отступ между строками галереи */
-    .gallery-row {
-      row-gap: 0.5rem;
-    }
+    .gallery-row { row-gap: .5rem; }
+    .gallery-thumb { cursor: pointer; transition: transform .15s; }
+    .gallery-thumb:hover { transform: scale(1.03); }
   </style>
 </head>
-<body class="bg-light">
-  <div class="container py-4">
-    <!-- Кнопка «Назад» -->
-    <a href="{{ url_for('home') }}" class="btn btn-outline-secondary mb-4">&larr; Назад</a>
+<body>
+<main class="container my-5" id="eventDetail">
+  <!-- сюда JS вставит контент -->
+</main>
 
-    <!-- Заголовок и дата -->
-    <h1 class="h3 mb-1">{{ event.title }}</h1>
-    <p class="text-muted small mb-4">{{ event.date.strftime('%d.%m.%Y') }}</p>
-
-    <!-- Главное изображение -->
-    <div class="ratio-16x9 mb-4">
-      <img
-        src="{{ url_for('static', filename=event.image) }}"
-        alt="{{ event.title }}">
-    </div>
-
-    <!-- Описание и статья/ссылка -->
-    <p class="fs-5 mb-3">{{ event.description }}</p>
-    <hr>
-    {% if event.article %}
-      <div class="mb-5 text-break">{{ event.article }}</div>
-    {% elif event.link %}
-      <p class="mb-5">
-        Подробнее:
-        <a href="{{ event.link }}" target="_blank" class="btn btn-primary btn-sm">
-          Перейти по ссылке
-        </a>
-      </p>
-    {% endif %}
-
-    <!-- Галерея -->
-    {% if event.images %}
-      <h2 class="h5 mb-3">Галерея</h2>
-      <div class="row gallery-row">
-        {% for img in event.images %}
-          <div class="col-12 col-sm-6 col-md-4">
-            <div class="ratio-4x3 rounded mb-3">
-              <img
-                src="{{ url_for('static', filename=img.image_path) }}"
-                alt="Фото {{ loop.index }}">
-            </div>
-          </div>
-        {% endfor %}
+<!-- Modal + Carousel для галереи -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen-sm-down modal-xl">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal"></button>
       </div>
-    {% endif %}
+      <div class="modal-body p-0">
+        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner" id="galleryInner"></div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    // 1) Инициализация Supabase
+    const SUPABASE_URL      = 'https://fvcbuhnbqlqlmtxuixas.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ2Y2J1aG5icWxxbG10eHVpeGFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0NzM1ODYsImV4cCI6MjA2NzA0OTU4Nn0.EvVWiwCk8lFqPY4WrDQeqW5qNgc9j6kyVumaiBO9F7Y';
+    const { createClient }  = supabase;
+    const supabaseClient    = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // 2) Парсим event_id
+    const params  = new URLSearchParams(window.location.search);
+    const eventId = params.get('event_id');
+    if (!eventId) {
+      document.getElementById('eventDetail').innerHTML =
+              '<div class="alert alert-danger">Не указан event_id</div>';
+      return;
+    }
+
+    // 3) Запрашиваем событие и его изображения
+    const { data: event, error } = await supabaseClient
+            .from('events')
+            .select('id,title,description,article,image,event_images(image_path)')
+            .eq('id', eventId)
+            .single();
+
+    if (error || !event) {
+      document.getElementById('eventDetail').innerHTML =
+              '<div class="alert alert-danger">Событие не найдено</div>';
+      return;
+    }
+
+    // 4) Рендерим карточку события
+    const imgUrl = event.image
+            ? `/static/${event.image}`
+            : '/static/assets/img/placeholder.jpg';
+
+    let html = `
+    <div class="card shadow-sm">
+      <div class="ratio-16x9">
+        <img src="${imgUrl}" class="card-img-top" alt="${event.title}">
+      </div>
+      <div class="card-body">
+        <h1 class="card-title mb-3">${event.title}</h1>
+        <p class="text-muted mb-4">${event.description}</p>
+        <div class="card-text">${event.article}</div>
+      </div>
+    </div>
+  `;
+
+    // 5) Рендерим превью-галерею
+    if (event.event_images.length) {
+      html += `<h3 class="mt-5 mb-3">Фотогалерея</h3>
+      <div class="row gallery-row">`;
+      event.event_images.forEach((img, idx) => {
+        const thumbUrl = `/static/${img.image_path}`;
+        html += `
+        <div class="col-6 col-md-3 mb-3">
+          <div class="ratio-4x3 gallery-thumb" data-bs-toggle="modal"
+               data-bs-target="#galleryModal" data-slide-to="${idx}">
+            <img src="${thumbUrl}" class="w-100 h-100" alt="">
+          </div>
+        </div>
+      `;
+      });
+      html += `</div>`;
+    }
+
+    document.getElementById('eventDetail').innerHTML = html;
+
+    // 6) Наполняем modal-carousel полными изображениями
+    const galleryInner = document.getElementById('galleryInner');
+    event.event_images.forEach((img, idx) => {
+      const fullUrl = `/static/${img.image_path}`;
+      galleryInner.insertAdjacentHTML('beforeend', `
+      <div class="carousel-item${idx === 0 ? ' active' : ''}">
+        <img src="${fullUrl}" class="d-block w-100" alt="">
+      </div>
+    `);
+    });
+
+    // 7) При открытии modal ставим нужный слайд
+    const galleryModal = document.getElementById('galleryModal');
+    galleryModal.addEventListener('show.bs.modal', event => {
+      const trigger = event.relatedTarget;
+      const slideTo = parseInt(trigger.getAttribute('data-slide-to'), 10);
+      const carousel = bootstrap.Carousel.getOrCreateInstance('#galleryCarousel');
+      carousel.to(slideTo);
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

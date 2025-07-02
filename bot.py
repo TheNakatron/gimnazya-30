@@ -397,10 +397,24 @@ def main():
     delete_teacher_h = CommandHandler("delete_teacher", delete_teacher)
     delete_event_h   = CommandHandler("delete_event",   delete_event)
 
+    app.add_handler(
+        CallbackQueryHandler(
+            cb_delete_teacher,
+            pattern=r"^del_teacher:"  # будем ловить только callback_data, начинающуюся с "del_teacher:"
+        )
+    )
+
     app.add_handler(teacher_conv)
     app.add_handler(event_conv)
     app.add_handler(delete_teacher_h)
     app.add_handler(delete_event_h)
+
+    app.add_handler(
+        CallbackQueryHandler(
+            cb_delete_event,
+            pattern=r"^del_event:"
+        )
+    )
 
     app.run_polling()
 

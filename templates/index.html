@@ -9,13 +9,16 @@
             href="{{ url_for('static', filename='assets/style/style.css') }}"
             rel="stylesheet"
     />
+    <!-- Supabase JS SDK -->
+    <script
+            src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
+            defer
+    ></script>
+
     <style>
         body {
-            background-color: #cc5577;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 100 60'%3E%3Cg %3E%3Crect fill='%23cc5577' width='11' height='11'/%3E%3Crect fill='%23ce5776' x='10' width='11' height='11'/%3E%3Crect fill='%23d05a76' y='10' width='11' height='11'/%3E%3Crect fill='%23d15c75' x='20' width='11' height='11'/%3E%3Crect fill='%23d35f74' x='10' y='10' width='11' height='11'/%3E%3Crect fill='%23d46174' y='20' width='11' height='11'/%3E%3Crect fill='%23d66473' x='30' width='11' height='11'/%3E%3Crect fill='%23d76673' x='20' y='10' width='11' height='11'/%3E%3Crect fill='%23d96972' x='10' y='20' width='11' height='11'/%3E%3Crect fill='%23da6c72' y='30' width='11' height='11'/%3E%3Crect fill='%23db6e71' x='40' width='11' height='11'/%3E%3Crect fill='%23dc7171' x='30' y='10' width='11' height='11'/%3E%3Crect fill='%23dd7471' x='20' y='20' width='11' height='11'/%3E%3Crect fill='%23de7671' x='10' y='30' width='11' height='11'/%3E%3Crect fill='%23df7971' y='40' width='11' height='11'/%3E%3Crect fill='%23e07c71' x='50' width='11' height='11'/%3E%3Crect fill='%23e17e71' x='40' y='10' width='11' height='11'/%3E%3Crect fill='%23e28171' x='30' y='20' width='11' height='11'/%3E%3Crect fill='%23e38471' x='20' y='30' width='11' height='11'/%3E%3Crect fill='%23e38771' x='10' y='40' width='11' height='11'/%3E%3Crect fill='%23e48972' y='50' width='11' height='11'/%3E%3Crect fill='%23e58c72' x='60' width='11' height='11'/%3E%3Crect fill='%23e58f73' x='50' y='10' width='11' height='11'/%3E%3Crect fill='%23e69173' x='40' y='20' width='11' height='11'/%3E%3Crect fill='%23e69474' x='30' y='30' width='11' height='11'/%3E%3Crect fill='%23e79775' x='20' y='40' width='11' height='11'/%3E%3Crect fill='%23e79a75' x='10' y='50' width='11' height='11'/%3E%3Crect fill='%23e89c76' x='70' width='11' height='11'/%3E%3Crect fill='%23e89f77' x='60' y='10' width='11' height='11'/%3E%3Crect fill='%23e8a278' x='50' y='20' width='11' height='11'/%3E%3Crect fill='%23e9a47a' x='40' y='30' width='11' height='11'/%3E%3Crect fill='%23e9a77b' x='30' y='40' width='11' height='11'/%3E%3Crect fill='%23e9aa7c' x='20' y='50' width='11' height='11'/%3E%3Crect fill='%23e9ac7e' x='80' width='11' height='11'/%3E%3Crect fill='%23eaaf7f' x='70' y='10' width='11' height='11'/%3E%3Crect fill='%23eab281' x='60' y='20' width='11' height='11'/%3E%3Crect fill='%23eab482' x='50' y='30' width='11' height='11'/%3E%3Crect fill='%23eab784' x='40' y='40' width='11' height='11'/%3E%3Crect fill='%23eaba86' x='30' y='50' width='11' height='11'/%3E%3Crect fill='%23ebbc88' x='90' width='11' height='11'/%3E%3Crect fill='%23ebbf8a' x='80' y='10' width='11' height='11'/%3E%3Crect fill='%23ebc18c' x='70' y='20' width='11' height='11'/%3E%3Crect fill='%23ebc48e' x='60' y='30' width='11' height='11'/%3E%3Crect fill='%23ebc790' x='50' y='40' width='11' height='11'/%3E%3Crect fill='%23ebc992' x='40' y='50' width='11' height='11'/%3E%3Crect fill='%23ebcc94' x='90' y='10' width='11' height='11'/%3E%3Crect fill='%23ebce97' x='80' y='20' width='11' height='11'/%3E%3Crect fill='%23ebd199' x='70' y='30' width='11' height='11'/%3E%3Crect fill='%23ecd39c' x='60' y='40' width='11' height='11'/%3E%3Crect fill='%23ecd69e' x='50' y='50' width='11' height='11'/%3E%3Crect fill='%23ecd8a1' x='90' y='20' width='11' height='11'/%3E%3Crect fill='%23ecdba4' x='80' y='30' width='11' height='11'/%3E%3Crect fill='%23ecdda6' x='70' y='40' width='11' height='11'/%3E%3Crect fill='%23ece0a9' x='60' y='50' width='11' height='11'/%3E%3Crect fill='%23ede2ac' x='90' y='30' width='11' height='11'/%3E%3Crect fill='%23ede4af' x='80' y='40' width='11' height='11'/%3E%3Crect fill='%23ede7b2' x='70' y='50' width='11' height='11'/%3E%3Crect fill='%23ede9b5' x='90' y='40' width='11' height='11'/%3E%3Crect fill='%23eeecb8' x='80' y='50' width='11' height='11'/%3E%3Crect fill='%23EEB' x='90' y='50' width='11' height='11'/%3E%3C/g%3E%3C/svg%3E");
-            background-attachment: fixed;
-            background-size: cover;
-            color: white; /* желательно, чтобы текст читался */
+            background-color: #ffffff;
+            color: #000033; /* желательно, чтобы текст читался */
         }
 
         /* Глобально, для всех слайдов карусели */
@@ -77,6 +80,39 @@
             }
         }
 
+        .navbar .nav-link {
+            color: white !important;
+        }
+
+        #schoolCarousel .carousel-item a {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+
+        /* кнопка «Подробнее» */
+        #schoolCarousel .carousel-item a .more-btn {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 0.4rem 0.8rem;
+            border-radius: 0.3rem;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+
+        #schoolCarousel .carousel-item a .more-btn:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .more-btn{
+            z-index: 1055;          /* больше, чем у .carousel-control-* (по-умолчанию 1) */
+            cursor: pointer;        /* чтобы явно показывался "рука" */
+        }
+
 
     </style>
 
@@ -84,17 +120,17 @@
 <body>
 
 <!-- Навигация -->
-<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-2" style="background-color: #00695C;">
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-2" style="background-color: #082567;">
     <div class="container-fluid px-4">
         <!-- Логотип слева -->
-        <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <a class="navbar-brand d-flex align-items-center" href="assets/img/gerb-school.png">
             <img src="{{ url_for('static', filename='assets/img/gerb-school.png') }}" alt="Герб школы" width="40"
                  height="40" class="me-2">
             <span class="fw-bold text-white">Школа №30</span>
         </a>
 
         <!-- Кнопка бургер -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -126,7 +162,7 @@
 
 <!-- Контент -->
 <main class="container my-5">
-    <div class="p-4 rounded-4 shadow-sm" style="min-height: 300px; background: #E8F5E9; ">
+    <div class="p-4 rounded-4 shadow-sm" style="min-height: 300px; background: #7fc7ff; ">
         <div class="row align-items-stretch">
             <!-- Фото -->
             <div class="col-md-4">
@@ -139,20 +175,20 @@
             </div>
 
             <!-- Текст -->
-            <div class="col-md-8 d-flex flex-column justify-content-center">
-                <h1 class="h3 text-dark">Добро пожаловать в Школу №30</h1>
+            <div class="col-md-8 d-flex flex-column justify-content-center mt-3 mt-md-0">
+                <h1 class="h3 fw-bold">Добро пожаловать в Школу №30</h1>
 
-                <p class="lead text-dark fw-bold d-md-none mb-2">
+                <p class="lead fw-column d-md-none mb-2">
                     Начальная школа № 30 была организована в послевоенное время в посёлке Винновка.
                 </p>
 
                 <!-- Скрываться будет всё, что дальше -->
                 <div class="collapse d-md-none" id="fullDesc">
-                    <p class="lead text-dark fw-bold mb-2 " id="fullDesc">
+                    <p class="lead  fw-column mb-2 " id="fullDesc">
                         В 1970 году в новом микрорайоне Железнодорожного района г. Ульяновска было построено здание для
                         средней образовательной школы.
                     </p>
-                    <p class="lead text-dark fw-bold mb-0">
+                    <p class="lead body fw-column mb-0">
                         Муниципальное бюджетное общеобразовательное учреждение гимназия № 30 переименовано в
                         муниципальное бюджетное общеобразовательное учреждение города Ульяновска «Гимназия № 30 им.
                         Железной Дивизии» на основании распоряжения Управления образования администрации города
@@ -180,12 +216,12 @@
 
                 <!-- Полный текст для десктопа -->
                 <div class="d-none d-md-block">
-                    <p class="lead text-dark fw-bold mb-2">
+                    <p class="lead fw-column mb-2">
                         Начальная школа №30 была организована в послевоенное время в посёлке Винновка.
                         В 1970 году в новом микрорайоне Железнодорожного района г. Ульяновска было построено здание для
                         средней школы.
                     </p>
-                    <p class="lead text-dark fw-bold mb-0">
+                    <p class="lead fw-column mb-0">
                         Муниципальное бюджетное общеобразовательное учреждение гимназия № 30 переименовано в
                         муниципальное бюджетное общеобразовательное учреждение города Ульяновска «Гимназия № 30 им.
                         Железной Дивизии» на основании распоряжения Управления образования администрации города
@@ -198,53 +234,27 @@
     </div>
 
 
-    <div class="container-fluid px-0 mt-5 ">
-        <div id="schoolCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner rounded-4">
-                {% for e in events %}
-                    <div class="carousel-item {% if loop.first %}active{% endif %}">
-                        <a href="{% if e.link %}
-                   {{ e.link }}
-                 {% else %}
-                   {{ url_for('event_detail', event_id=e.id) }}
-                 {% endif %}"
-                           target="{% if e.link %}_blank{% else %}_self{% endif %}">
-                            <img src="{{ url_for('static', filename=e.image or 'assets/img/placeholder.jpg') }}"
-                                 class="d-block w-100"
-                                 alt="{{ e.title }}">
-                            <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
-                                <h5>{{ e.title }}</h5>
-                                <p>{{ e.description }}</p>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-
-            <!-- Кнопки -->
-            <button class="carousel-control-prev" data-bs-target="#schoolCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" data-bs-target="#schoolCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-
-            <!-- Индикаторы -->
-            <div class="carousel-indicators">
-                {% for e in events %}
-                    <button type="button"
-                            data-bs-target="#schoolCarousel"
-                            data-bs-slide-to="{{ loop.index0 }}"
-                            {% if loop.first %}class="active"{% endif %}>
-                    </button>
-                {% endfor %}
+    <section class="container my-5">
+        <div class="p-2 rounded-4 shadow-sm" style="background: #7fc7ff">
+            <h2 class="fw-bold mb-2 text-dark text-center">События</h2>
+            <div id="schoolCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner rounded-4" id="eventsContainer"></div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#schoolCarousel"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#schoolCarousel"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+                <div class="carousel-indicators" id="eventsIndicators"></div>
             </div>
         </div>
-    </div>
+    </section>
 
     <section class="container my-5">
-        <div class="p-4 rounded-4 shadow-sm" style="background: #E8F5E9">
-            <h2 class="mb-4 fw-bold text-dark">Руководство</h2>
+        <div class="p-4 rounded-4 shadow-sm" style="background: #7fc7ff">
+            <h2 class="mb-4 fw-bold">Руководство</h2>
 
             <div class="row align-items-start g-4">
                 <!-- Фото директора -->
@@ -258,7 +268,7 @@
                 </div>
 
                 <!-- Контент: ФИО, телефон, часы, и обращение -->
-                <div class="col-md-8 text-dark">
+                <div class="col-md-8">
                     <h5 class="fw-semibold mb-1">Чирковская Наталья Александровна</h5>
                     <p class="text-muted mb-2">Директор гимназии</p>
 
@@ -267,7 +277,7 @@
 
                     <!-- Для десктопа: показываем обращение сразу -->
                     <div class="mt-4 d-none d-md-block">
-                        <h5 class="fw-bold text-primary">Дорогие друзья!</h5>
+                        <h5 class="fw-bold">Дорогие друзья!</h5>
                         <p>
                             Я рада приветствовать Вас на официальном сайте нашей гимназии!
                             Информация, расположенная на страницах сайта, позволит познакомиться с историей гимназии, её
@@ -316,7 +326,7 @@
                             aria-label="Закрыть"
                     ></button>
                 </div>
-                <div class="modal-body text-dark">
+                <div class="modal-body">
                     <h5 class="fw-bold">Дорогие друзья!</h5>
                     <p>
                         Я рада приветствовать Вас на официальном сайте нашей гимназии!
@@ -345,59 +355,21 @@
         </div>
     </div>
 
-    <section class="container my-5">
-        <div class="p-4 rounded-4 shadow-lg" style="background: #E8F5E9">
-            <h2 class="fw-bold mb-4 text-dark text-center">Педагогический состав</h2>
+    <section class="container my-5" id="teachersSection">
+        <div class="p-4 rounded-4 shadow-lg" style="background: #7fc7ff">
+            <h2 class="fw-bold mb-4 text-center">Педагогический состав</h2>
 
             <div id="teachersCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-
-                    {% for t in teachers %}
-                        <div class="carousel-item {% if loop.first %}active{% endif %}">
-                            <div class="row gx-0 align-items-center">
-                                <!-- Картинка -->
-                                <div class="col-md-5">
-                                    <img
-                                            src="{{ url_for('static', filename='teachers/' + t.photo) }}"
-                                            class="img-fluid rounded-4"
-                                            style="max-height: 700px; object-fit: cover;"
-                                            alt="{{ t.name }}">
-                                </div>
-                                <!-- Текстовая часть -->
-                                <div class="col-md-7">
-                                    <div class="p-4" style="background: rgba(255,255,255,0.9);">
-                                        <h3 class="fw-bold mb-2 text-dark">{{ t.name }}</h3>
-                                        <p class="text-secondary mb-1">{{ t.position }}</p>
-                                        <p class="mb-3 text-dark">Опыт: {{ t.experience }} лет</p>
-
-                                        {% if t.link %}
-                                            <a
-                                                    href="{{ t.link }}"
-                                                    target="_blank"
-                                                    class="btn btn-primary">
-                                                Профиль на Госуслугах
-                                            </a>
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-
+                <div class="carousel-inner" id="teachersContainer">
+                    <!-- JS вставит сюда .carousel-item -->
                 </div>
 
-                <button
-                        class="carousel-control-prev"
-                        type="button"
-                        data-bs-target="#teachersCarousel"
-                        data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button"
+                        data-bs-target="#teachersCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
                 </button>
-                <button
-                        class="carousel-control-next"
-                        type="button"
-                        data-bs-target="#teachersCarousel"
-                        data-bs-slide="next">
+                <button class="carousel-control-next" type="button"
+                        data-bs-target="#teachersCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
                 </button>
             </div>
@@ -425,6 +397,99 @@
         collapseEl.addEventListener('hide.bs.collapse', function () {
             btn.textContent = '…читать далее';
         });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        // 1) Инициализация Supabase
+        const SUPABASE_URL = 'https://fvcbuhnbqlqlmtxuixas.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ2Y2J1aG5icWxxbG10eHVpeGFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0NzM1ODYsImV4cCI6MjA2NzA0OTU4Nn0.EvVWiwCk8lFqPY4WrDQeqW5qNgc9j6kyVumaiBO9F7Y';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // 2) Загрузка и рендер «Событий» в карусель
+        const { data: events, error: errEv } = await supabaseClient
+            .from('events')
+            .select('*')
+            .order('date', { ascending: false });
+
+        if (!errEv) {
+            const evCont = document.getElementById('eventsContainer');
+            const evInd  = document.getElementById('eventsIndicators');
+
+            events.forEach((e, i) => {
+                const activeClass = i === 0 ? ' active' : '';
+                const imgUrl      = e.image
+                    ? `/static/${e.image}`
+                    : '/static/assets/img/placeholder.jpg';
+                const detailUrl   = `event_detail.html?event_id=${e.id}`;
+
+                // рендерим один слайд
+                evCont.insertAdjacentHTML('beforeend', `
+      <div class="carousel-item${activeClass}">
+        <a href="${detailUrl}"
+           class="d-block position-relative text-decoration-none">
+          <img src="${imgUrl}" class="d-block w-100" alt="${e.title}">
+          <!-- стилизованный блок «кнопка» -->
+          <div class="more-btn btn btn-dark position-absolute bottom-0 end-0 m-3">
+            Подробнее →
+          </div>
+          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+            <h5>${e.title}</h5>
+            <p>${e.description}</p>
+          </div>
+        </a>
+      </div>
+    `);
+
+                // и индикатор
+                evInd.insertAdjacentHTML('beforeend', `
+      <button type="button"
+              data-bs-target="#schoolCarousel"
+              data-bs-slide-to="${i}"
+              class="${activeClass.trim() ? 'active' : ''}">
+      </button>
+    `);
+            });
+        }
+
+        // 3) Загрузка и рендер «Педагогического состава»
+        const {data: teachers, error: errT} = await supabaseClient
+            .from('teachers')
+            .select('*')
+            .order('id', {ascending: true});
+
+        if (errT) {
+            console.error('Ошибка загрузки преподавателей:', errT);
+        } else {
+            const tCont = document.getElementById('teachersContainer');
+
+            teachers.forEach((t, i) => {
+                const active = i === 0 ? ' active' : '';
+                const photoUrl = `/static/teachers/${t.photo}`;
+
+                tCont.insertAdjacentHTML('beforeend', `
+        <div class="carousel-item${active}">
+          <div class="row gx-0 align-items-center">
+            <div class="col-md-5">
+              <img src="${photoUrl}"
+                   class="img-fluid rounded-4"
+                   style="max-height:700px;object-fit:cover;"
+                   alt="${t.name}">
+            </div>
+            <div class="col-md-7 p-4" style="background:#7fc7ff;">
+              <h3 class="fw-bold mb-1">${t.name}</h3>
+              <p class="text-secondary mb-1">${t.position}</p>
+              <p class="mb-2">Опыт: ${t.experience} лет</p>
+              ${t.link
+                    ? `<a href="${t.link}" target="_blank" class="btn btn-primary mt-2">Профиль на Госуслугах</a>`
+                    : ''}
+            </div>
+          </div>
+        </div>
+      `);
+            });
+        }
     });
 </script>
 

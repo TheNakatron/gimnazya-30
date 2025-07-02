@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Школа №30</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    />
+    <link
+            href="{{ url_for('static', filename='assets/style/style.css') }}"
+            rel="stylesheet"
+    />
+
+    <!-- Supabase JS SDK (создаёт глобальный объект `supabase`) -->
+    <script
+            src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
+            defer
+    ></script>
+</head>
+<body>
+
+<!-- Навигация -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm py-2" style="background-color: #082567;">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="{{ url_for('static', filename='assets/img/gerb-school.png') }}"
+                 alt="Герб школы" width="40" height="40" class="me-2">
+            <span class="fw-bold text-white">Школа №30</span>
+        </a>
+        <button class="navbar-toggler bg-white" type="button"
+                data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                <li class="nav-item"><a class="nav-link"
+                                        href="https://ul-gimnaziya30.gosuslugi.ru/...">О школе</a></li>
+                <li class="nav-item"><a class="nav-link" href="#teachersCarousel">Преподаватели</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://sgo.cit73.ru/">Расписание</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="documents.html">Документы</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
+            <a href="https://nationalprojects.ru/" target="_blank" class="d-none d-lg-block">
+                <img src="{{ url_for('static', filename='assets/img/national-projects-logo.png') }}"
+                     alt="Нацпроекты" height="40">
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- ... Вся верхняя часть страницы остаётся как у вас ... -->
+
+<main class="container my-5">
+    <!-- ... Другие секции ... -->
+
+    <!-- Секция “Педагогический состав” -->
+    <section class="container my-5" id="teachersSection">
+        <div class="p-4 rounded-4 shadow-lg" style="background: #7fc7ff">
+            <h2 class="fw-bold mb-4 text-center">Педагогический состав</h2>
+
+            <div id="teachersCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" id="teachersContainer">
+                    <!-- JS вставит сюда .carousel-item -->
+                </div>
+
+                <button class="carousel-control-prev" type="button"
+                        data-bs-target="#teachersCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2"></span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                        data-bs-target="#teachersCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ... Остальные секции ... -->
+
+</main>
+
+<footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+        <p class="mb-0">&copy; 2025 Школа №30. Все права защищены.</p>
+    </div>
+</footer>
+
+<!-- Ваш скрипт: инициализация Supabase + заполнение карусели -->
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const SUPABASE_URL      = 'https://fvcbuhnbqlqlmtxuixas.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ2Y2J1aG5icWxxbG10eHVpeGFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE0NzM1ODYsImV4cCI6MjA2NzA0OTU4Nn0.EvVWiwCk8lFqPY4WrDQeqW5qNgc9j6kyVumaiBO9F7Y';
+        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Получаем всех преподавателей
+        const { data: teachers, error } = await supabaseClient
+            .from('teachers')
+            .select('*')
+            .order('id', { ascending: true });
+
+        if (error) {
+            console.error('Ошибка загрузки преподавателей:', error);
+            return;
+        }
+
+        // Заполняем карусель
+        const container = document.getElementById('teachersContainer');
+        teachers.forEach((t, i) => {
+            const active = i === 0 ? ' active' : '';
+            const photoUrl = `/static/teachers/${t.photo}`;
+
+            container.insertAdjacentHTML('beforeend', `
+        <div class="carousel-item${active}">
+          <div class="row gx-0 align-items-center">
+            <div class="col-md-5">
+              <img src="${photoUrl}"
+                   class="img-fluid rounded-4"
+                   style="max-height:700px;object-fit:cover;"
+                   alt="${t.name}">
+            </div>
+            <div class="col-md-7 p-4" style="background:#7fc7ff;">
+              <h3 class="fw-bold mb-1">${t.name}</h3>
+              <p class="text-secondary mb-1">${t.position}</p>
+              <p class="mb-2">Опыт: ${t.experience} лет</p>
+              ${t.link
+                ? `<a href="${t.link}" target="_blank" class="btn btn-primary">
+                     Профиль на Госуслугах
+                   </a>`
+                : ''}
+            </div>
+          </div>
+        </div>
+      `);
+        });
+    });
+</script>
+
+<!-- Bootstrap JS -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        defer
+></script>
+</body>
+</html>
