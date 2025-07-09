@@ -252,7 +252,7 @@ p {
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: url(http://94.181.22.25:5000/static/img/school.jpg) center/cover no-repeat;
+    background: url(/static/img/school.jpg) center/cover no-repeat;
     z-index: 0
 }
 
@@ -600,4 +600,108 @@ h2 {
 
 .wiki:link {
     outline: none;
+}
+
+.carousel-item > .row {
+    display: flex;
+    gap: 1rem;
+    width: 400px !important;
+}
+
+.carousel-card {
+    flex: 1 1 0;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.carousel-card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .carousel-card {
+        flex: 0 0 100%;
+    }
+}
+
+#eventSlider .card {
+    transition: transform 0.3s ease;
+    border: none;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#eventSlider .card:hover {
+    transform: scale(1.03);
+}
+
+#eventSlider .card-body {
+    background-color: #212529;
+}
+
+.owl-nav {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.owl-nav button {
+    background-color: white !important;
+    border-radius: 50% !important;
+    width: 40px;
+    height: 40px;
+    font-size: 20px !important;
+    line-height: 1;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.owl-dots {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.owl-dots .owl-dot span {
+    background: white;
+}
+
+.owl-dots .owl-dot.active span {
+    background: #0d6efd;
+}
+
+.owl-carousel .owl-item img {
+    display: block;
+    width: 100% !important;
+}
+
+.event-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.5); /* полупрозрачный чёрный фон */
+    color: white;
+    z-index: 2;
+}
+
+.event-caption h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.event-caption p {
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+    color: #dddddd;
+}
+
+.event-slide {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
 }

@@ -9,15 +9,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // ===== 2) Загрузка и отображение событий в обычной Bootstrap-карусели =====
 
-    $(document).ready(async function () {
+        $(document).ready(async function () {
         try {
-            const response = await fetch('/api/events.php');
-            const events = await response.json();
+        const response = await fetch('/api/events.php');
+        const events = await response.json();
 
-            const $slider = $('#eventSlider');
+        const $slider = $('#eventSlider');
 
-            events.forEach(event => {
-                const slide = `
+        events.forEach(event => {
+        const slide = `
                 <div class="card h-100 shadow-sm rounded-4 overflow-hidden mx-2">
                     <img src="static/img/events/${event.image}" class="card-img-top" style="object-fit: cover;" alt="${event.title}">
                     <div class="event-caption text-white">
@@ -26,30 +26,30 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
             `;
-                $slider.append(slide);
-            });
+        $slider.append(slide);
+    });
 
-            $slider.owlCarousel({
-                loop: true,
-                margin: 12,
-                nav: true,
-                dots: true,
-                autoplay: false,
-                smartSpeed: 500,
-                responsive: {
-                    0:    { items: 1 },
-                    768:  { items: 2 },
-                    1200: { items: 3 }
-                },
-                navText: [
-                    '<span class="btn btn-light rounded-circle shadow"><</span>',
-                    '<span class="btn btn-light rounded-circle shadow">></span>'
-                ]
-            });
+        $slider.owlCarousel({
+        loop: true,
+        margin: 12,
+        nav: true,
+        dots: true,
+        autoplay: false,
+        smartSpeed: 500,
+        responsive: {
+            0:    { items: 1 },
+            768:  { items: 2 },
+            1200: { items: 3 }
+    },
+        navText: [
+        '<span class="btn btn-light rounded-circle shadow"><</span>',
+        '<span class="btn btn-light rounded-circle shadow">></span>'
+        ]
+    });
 
-        } catch (e) {
-            console.error('Ошибка загрузки событий:', e);
-        }
+    } catch (e) {
+        console.error('Ошибка загрузки событий:', e);
+    }
     });
 
 
