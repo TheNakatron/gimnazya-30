@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Админка — Преподаватели</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+<section class="section">
+    <div class="container">
+        <h1 class="title">Админка — Преподаватели</h1>
+
+        <div class="box">
+            <h2 class="subtitle">Новый преподаватель</h2>
+
+            <div class="field">
+                <label class="label">ФИО</label>
+                <div class="control">
+                    <input id="name" class="input" type="text" placeholder="Иванов И.И.">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Должность</label>
+                <div class="control">
+                    <input id="position" class="input" type="text" placeholder="Учитель математики">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Опыт (лет)</label>
+                <div class="control">
+                    <input id="experience" class="input" type="number" placeholder="5">
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Ссылка</label>
+                <div class="control">
+                    <input id="link" class="input" type="url" placeholder="https://...">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <button id="add-teacher" class="button is-primary">Добавить</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Фото</label>
+            <div class="control">
+                <input id="photo" class="input" type="file" accept="image/*">
+            </div>
+        </div>
+
+        <table class="table is-fullwidth">
+            <thead>
+            <tr>
+                <th>ID</th><th>ФИО</th><th>Должность</th><th>Опыт</th><th>Ссылка</th><th>Действие</th>
+            </tr>
+            </thead>
+            <tbody id="teachers-list">
+            <!-- сюда вставятся строки -->
+            </tbody>
+        </table>
+
+    </div>
+</section>
+
+<script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+    const supabaseUrl      = 'https://fvcbuhnbqlqlmtxuixas.supabase.co'
+    const supabaseAnonKey  = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ2Y2J1aG5icWxxbG10eHVpeGFzIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc1MTQ3MzU4NiwiZXhwIjoyMDY3MDQ5NTg2fQ.K3Ljf-144Wm-ztAWVelhL2c4FgGmTCfRuz5upBGiApk'
+    const supabase         = createClient(supabaseUrl, supabaseAnonKey)
+
+    const tblBody  = document.getElementById('teachers-list')
+    const btnAdd   = document.getElementById('add-teacher')
+    const inpPhoto = document.getElementById('photo')
+
+    // — ЗАГРУЗКА СПИСКА ПРЕПОДАВАТЕЛЕЙ —
+    async function loadTeachers() {
+        const { data, error } = await supabase
+            .from('teachers')
+            .select('*')
+            .order('id', { ascending: true })
+
+        if (error) {
+            console.error(error)
+            return
+        }
+
+        tblBody.innerHTML = ''
+        data.forEach(t => {
+            const tr = document.createElement('tr')
+            tr.innerHTML = `
+        <td>${t.id}</td>
+        <td>${t.name}</td>
+        <td>${t.position}</td>
+        <td>${t.experience}</td>
+        <td>${t.link ? `<a href="${t.link}" target="_blank">🔗</a>` : ''}</td>
+        <td>
+          <button class="button is-small is-danger" data-id="${t.id}">❌</button>
+        </td>`
+            tblBody.append(tr)
+        })
+    }
+
+    // — ДОБАВЛЕНИЕ НОВОГО ПРЕПОДА —
+    btnAdd.addEventListener('click', async () => {
+        const name  = document.getElementById('name').value.trim()
+        const pos   = document.getElementById('position').value.trim()
+        const exp   = document.getElementById('experience').value.trim()
+        const link  = document.getElementById('link').value.trim() || null
+        const file  = inpPhoto.files[0]
+
+        if (!name || !pos) {
+            alert('ФИО и должность обязательны')
+            return
+        }
+        if (!file) {
+            alert('Пожалуйста, выберите фото')
+            return
+        }
+
+        // 1) Залить картинку в Storage
+        const ext      = file.name.split('.').pop()
+        const fileName = `${Date.now()}_${Math.random().toString(36).substr(2)}.${ext}`
+        const { error: uploadError } = await supabase
+            .storage
+            .from('teachers')
+            .upload(fileName, file, { cacheControl: '3600', upsert: false })
+
+        if (uploadError) {
+            alert('Ошибка загрузки фото: ' + uploadError.message)
+            return
+        }
+
+        // 2) Вставить запись в таблицу
+        const { error: dbError } = await supabase
+            .from('teachers')
+            .insert([{ name, position: pos, experience: exp, link, photo: fileName }])
+
+        if (dbError) {
+            alert('Ошибка сохранения: ' + dbError.message)
+            return
+        }
+
+        // очистить форму
+        ['name','position','experience','link'].forEach(id => document.getElementById(id).value = '')
+        inpPhoto.value = ''
+
+        // обновить список
+        loadTeachers()
+    })
+
+    // — УДАЛЕНИЕ ПО КЛИКУ НА КНОПКУ ❌
+    tblBody.addEventListener('click', async event => {
+        if (!event.target.matches('button[data-id]')) return
+
+        const id = +event.target.dataset.id
+        if (!confirm(`Удалить преподавателя #${id}?`)) return
+
+        const { error } = await supabase
+            .from('teachers')
+            .delete()
+            .eq('id', id)
+
+        if (error) {
+            alert('Ошибка удаления: ' + error.message)
+            return
+        }
+
+        loadTeachers()
+    })
+
+    // — СТАРТОВЫЙ ЗАПРОС —
+    loadTeachers()
+</script>
+</body>
+</html>

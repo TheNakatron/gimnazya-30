@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link href="static/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        .info-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #0d6efd; /* синий */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg custom-navbar shadow-sm py-2">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="static/img/gerb-school.webp" alt="Герб школы" width="60" height="60" class="me-2">
+            <div class="d-flex flex-column lh-sm text-white text-glow">
+                <div class="fw-bold fs-4">Гимназия № 30</div>
+                <div class="fw-bold fs-5">им. Железной Дивизии</div>
+                <div class="text-white-50 fs-6">г. Ульяновск</div>
+            </div>
+        </a>
+
+        <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-lg-7 align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-start gap-2" href="/">
+                        <i class="bi bi-house-door-fill"></i> <span>Главная</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-start gap-2" href="about.html">
+                        <i class="bi bi-building me-1"></i> О школе
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-start gap-2" href="#teachersCarousel">
+                        <i class="bi bi-people-fill me-1"></i> Преподаватели
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-start gap-2" href="https://sgo.cit73.ru/">
+                        <i class="bi bi-calendar2-week-fill me-1"></i> Расписание
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-start gap-2" href="news.html">
+                        <i class="bi bi-newspaper me-1"></i> Новости
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-start gap-2" href="documents.html">
+                        <i class="bi bi-file-earmark-text-fill me-1"></i> Документы
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center justify-content-start gap-2" href="contacts.html">
+                        <i class="bi bi-telephone-fill me-1"></i> Контакты
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container-fluid">
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- Фото школы -->
+                <div class="col-md-6">
+                    <div class="overflow-hidden rounded-4 shadow-sm border">
+                        <img src="static/img/school.jpg" alt="Фото гимназии №30" class="img-fluid w-100"
+                             style="object-fit: cover; max-height: 400px;">
+                    </div>
+                </div>
+
+                <!-- Текст о школе -->
+                <div class="col-md-6">
+                    <p class="fs-5 mb-3">
+                        <strong>Гимназия № 30 им. Железной Дивизии</strong> — это современное и уважаемое
+                        образовательное учреждение,
+                        расположенное в Железнодорожном районе города Ульяновска. Её история уходит в
+                        послевоенные годы, а в <strong>1970 году</strong>
+                        было открыто нынешнее здание.
+                    </p>
+                    <p class="fs-5">
+                        В <strong>2004 году</strong> школе был присвоен статус <em>гимназии</em>, а с <strong>2021
+                        года</strong> она носит имя
+                        <a class="wiki" href="https://ru.wikipedia.org/wiki/%D0%96%D0%B5%D0%BB%D0%B5%D0%B7%D0%BD%D0%B0%D1%8F_%D0%B4%D0%B8%D0%B2%D0%B8%D0%B7%D0%B8%D1%8F">Железной дивизии</a> — легендарного военного
+                        соединения, освободившего Симбирск.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <!-- Заголовок секции -->
+            <h2 class="text-center fw-bold mb-5 display-5 gradient-text d-flex align-items-center justify-content-center gap-3">
+                <i class="bi bi-info-circle-fill text-primary"></i>
+                Общая информация о гимназии
+            </h2>
+
+            <div class="row g-4 align-items-center">
+                <!-- Блок с изображением -->
+                <div class="col-md-6">
+                    <div class="overflow-hidden rounded-4 shadow-sm border">
+                        <img src="static/img/dance.webp" alt="Фото гимназии" class="img-fluid w-100 rounded-4">
+                    </div>
+                </div>
+
+                <!-- Блок с текстовой информацией -->
+                <div class="col-md-6">
+                    <div class="bg-light rounded-4 shadow p-4 p-md-5 h-100 d-flex flex-column justify-content-center">
+
+                        <!-- Полное и сокращённое наименование -->
+                        <div class="mb-3">
+                            <h6 class="fw-semibold text-secondary mb-1">
+                                <i class="bi bi-card-text me-2 text-primary"></i>Полное наименование:
+                            </h6>
+                            <p class="mb-2">Муниципальное бюджетное общеобразовательное учреждение города Ульяновска
+                                <strong>«Гимназия № 30 им. Железной Дивизии»</strong></p>
+
+                            <h6 class="fw-semibold text-secondary mb-1">
+                                <i class="bi bi-card-heading me-2 text-primary"></i>Сокращённое наименование:
+                            </h6>
+                            <p>МБОУ <strong>«Гимназия № 30 им. Железной Дивизии»</strong></p>
+                        </div>
+
+                        <!-- Структура -->
+                        <div class="mb-3">
+                            <h6 class="fw-semibold text-secondary mb-1">
+                                <i class="bi bi-diagram-3-fill me-2 text-primary"></i>Структура гимназии:
+                            </h6>
+                            <ul class="mb-0 ps-3">
+                                <li>Начальная школа (1–4 классы)</li>
+                                <li>Среднее звено (5–9 классы)</li>
+                                <li>Старшее звено (10–11 классы)</li>
+                            </ul>
+                        </div>
+
+                        <!-- Коллектив -->
+                        <div class="mb-3">
+                            <h6 class="fw-semibold text-secondary mb-1">
+                                <i class="bi bi-people-fill me-2 text-primary"></i>Педагогический коллектив:
+                            </h6>
+                            <p class="mb-0">Замечательный коллектив педагогов создаёт все необходимые условия для
+                                получения качественного образования.</p>
+                        </div>
+
+                        <!-- Научное общество -->
+                        <div>
+                            <h6 class="fw-semibold text-secondary mb-1">
+                                <i class="bi bi-award-fill me-2 text-primary"></i>Научная деятельность:
+                            </h6>
+                            <p>Учащиеся активно участвуют в олимпиадах и конкурсах всех уровней. <strong>Научное
+                                общество «СЛОН»</strong> объединяет 50+ гимназистов и ежегодно приносит школе победы в
+                                проектах.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 display-5 gradient-text d-flex align-items-center justify-content-center gap-3">
+                <i class="bi bi-mortarboard-fill text-primary"></i>
+                Профильные направления
+            </h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="shadow-sm rounded-4 p-4 text-center">
+                        <i class="bi bi-book-half fs-2 text-primary"></i>
+                        <h5 class="mt-2">Гуманитарный</h5>
+                        <p>История, обществознание</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="shadow-sm rounded-4 p-4 text-center">
+                        <i class="bi bi-pc-display fs-2 text-primary"></i>
+                        <h5 class="mt-2">Технологический</h5>
+                        <p>Информатика, физика</p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="shadow-sm rounded-4 p-4 text-center">
+                        <i class="bi bi-flask-fill fs-2 text-primary"></i>
+                        <h5 class="mt-2">Естественно-научный</h5>
+                        <p>Химия, биология</p>
+                    </div>
+                </div>
+                <!-- Аналогично остальные -->
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5 display-5 gradient-text d-flex align-items-center justify-content-center gap-3">
+                <i class="bi bi-feather text-primary"></i>
+                История
+            </h2>
+            <div class="row g-4 align-items-center">
+                <div class="col-md-6">
+                    <div class="overflow-hidden rounded-4 shadow-sm border">
+                        <img src="static/img/school.jpg" alt="Фото гимназии №30" class="img-fluid w-100"
+                             style="object-fit: cover; max-height: 400px;">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <p class="fs-5">Средняя общеобразовательная школа №30 получила статус гимназии в 2004 году. Основой для гимназии
+                        стала средняя общеобразовательная школа с углубленным изучением английского языка и
+                        художественно-эстетическим направлением работы.
+                        Начальная школа №30 была организована в послевоенное время в посёлке Винновка.</p>
+                </div>
+                <div class="row-md-6">
+                    <p class="fs-5">
+                        В 1970 году в новом микрорайоне Железнодорожного района г. Ульяновска было построено здание для средней образовательной школы.
+                    </p>
+                    <p class="fs-5">
+                        В 1974-1983 годах на базе школы действовала вечерняя (сменная) школа для рабочей молодежи Железнодорожного района.
+                    </p>
+                    <p class="fs-5">
+                        В 1975 году историко-культурным центром школы стала комната боевой славы 6-й танковой армии Вооруженных сил СССР. В комнате создана документальная экспозиция боевого пути 6-й танковой армии, послужной список личного состава, хранятся личные вещи, макеты армейской атрибутики военного времени.
+                    </p>
+                    <p class="fs-5">
+                        В 1992-1996 годах в школе была введена модульная организация образовательного процесса: занятия проводились по 5-дневной рабочей неделе: 3 урока по 30 минут в старшей школе, в начальной - 2 урока продолжительностью 30 минут. Были разработаны технологические карты по многим учебным предметам.
+                    </p>
+                    <p class="fs-5">
+                        В 1993 году в связи с сокращением детских садов в районе и отсутствием должной подготовки дошкольников в семье была открыта ШРР (школа раннего развития). Целью её стала подготовка будущих первоклассников к обучению в начальной школе, а также адаптация к школьным требованиям. ШРР продолжает плодотворную работу и в настоящее время.
+                    </p>
+                    <p class="fs-5">
+                        В 1999 году на базе школы организовано аттестационное централизованное тестирование учащихся 9, 11 классов.
+                    </p>
+                    <p class="fs-5">
+                        С 2009 года творческая группа учителей гимназии включена в программу развития инновационных процессов в учреждениях дошкольного, общего, дополнительного, начального и среднего профессионального образования г. Ульяновска и Ульяновской области.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="bg-dark text-center py-3">
+    <div class="container">
+        <div class="col">
+            <p class="mb-0 text-white">
+                &copy; 2025 Школа №30. Все права защищены.
+                <span
+                        id="infoPopover"
+                        class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white"
+                        style="width: 24px; height: 24px; margin-left: 8px; cursor: pointer;"
+                        data-bs-toggle="popover"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        title="Дополнительная информация"
+                        data-bs-content='Вся информация доступна на <a href="https://gimnaziya30ulyanovsk-r73.gosweb.gosuslugi.ru/nasha-shkola/o-shkole/" target="_blank">сайте госуслуг</a>.'
+                >
+          <i class="bi bi-info text-primary" style="font-size: 16px;"></i>
+        </span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const trigger = document.getElementById('infoPopover');
+        const popover = new bootstrap.Popover(trigger, {
+            trigger: 'manual', // Управляем вручную
+            html: true
+        });
+
+        let isVisible = false;
+
+        trigger.addEventListener('click', function (e) {
+            e.stopPropagation(); // Не передавать дальше
+            if (isVisible) {
+                popover.hide();
+            } else {
+                popover.show();
+            }
+            isVisible = !isVisible;
+        });
+
+        // Закрытие при клике вне
+        document.addEventListener('click', function (e) {
+            if (isVisible && !trigger.contains(e.target)) {
+                popover.hide();
+                isVisible = false;
+            }
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.reveal').forEach(el => {
+            if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                el.classList.add('active');
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            document.querySelectorAll('.reveal').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add('active');
+                }
+            });
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

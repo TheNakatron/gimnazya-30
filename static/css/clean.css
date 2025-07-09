@@ -1,0 +1,867 @@
+body {
+    background-color: #fff;
+    color: #003;
+    text-align: justify
+}
+
+
+@media (max-width: 576px) {
+    .carousel-item img {
+        height: 400px
+    }
+
+    .background-logo-link {
+        display: none !important
+    }
+
+    .skeleton-img {
+        width: 100%;
+        height: 300px !important;
+        margin-bottom: 1rem
+    }
+
+    .rounded-4 {
+        text-align: left !important
+    }
+}
+
+.carousel-item .row {
+    margin-top: -1rem;
+    margin-bottom: -1rem
+}
+
+.carousel-inner {
+    padding: 0
+}
+
+.btn-primary {
+    min-width: 180px
+}
+
+#directorModal .modal-content {
+    background-color: #fff;
+    color: #000
+}
+
+@media (min-width: 768px) {
+    .btn[data-bs-toggle=collapse] {
+        display: none !important
+    }
+}
+
+.navbar .nav-link {
+    color: #fff !important
+}
+
+#schoolCarousel .carousel-item a {
+    position: relative;
+    display: block;
+    overflow: hidden
+}
+
+
+.national-projects {
+    background-image: url(/static/img/background-geometricks1.png);
+    background-repeat: no-repeat;
+    background-size: 200px auto;
+    background-position: right center;
+    background-attachment: fixed;
+    pointer-events: none
+}
+
+.background-logo-link {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 0
+}
+
+.background-logo-img {
+    width: 180px;
+    opacity: .9;
+    transition: opacity .3s
+}
+
+.background-logo-link:hover .background-logo-img {
+    opacity: .4
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #ccc 25%, #ddd 37%, #ccc 63%);
+    background-size: 400% 100%;
+    animation: skeleton-loading 1.2s ease-in-out infinite;
+    border-radius: .5rem
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 100% 0
+    }
+    100% {
+        background-position: 0 0
+    }
+}
+
+.skeleton-img {
+    width: 100%;
+    height: 600px;
+    margin-bottom: 1rem
+}
+
+.skeleton-title {
+    height: 20px;
+    width: 60%;
+    margin: 0 auto 1rem
+}
+
+.rounded-4 {
+    text-align: justify
+}
+
+body {
+    background-color: #fff;
+    color: #003
+}
+
+.contacts-section h1 {
+    color: #003;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: none
+}
+
+.contacts-card {
+    background-color: rgba(255, 255, 255, .95);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem
+}
+
+.contacts-card .school-contacts {
+    flex: 1 1 300px
+}
+
+.contacts-card .map-container {
+    flex: 1 1 300px
+}
+
+.contacts-card h4 {
+    font-size: 1.25rem;
+    margin-bottom: .75rem;
+    color: #333
+}
+
+.contacts-card .school-contacts p {
+    margin-bottom: .5rem;
+    color: #003;
+    line-height: 1.4
+}
+
+.contacts-card .map-container iframe {
+    width: 100%;
+    height: 260px;
+    border: none;
+    border-radius: .75rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .1)
+}
+
+.contacts-card .map-container .address {
+    margin-top: .5rem;
+    color: #003;
+    font-size: .9rem
+}
+
+.developer-card {
+    background-color: rgba(255, 255, 255, .95);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .2);
+    color: #003
+}
+
+.developer-card h4 {
+    margin-bottom: 1rem
+}
+
+.developer-card a, .developer-card p {
+    color: #003;
+    margin-bottom: .5rem
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    stroke: #333;
+    margin-top: 3px
+}
+
+.navbar .nav-link {
+    color: #fff !important
+}
+
+p {
+    color: #003
+}
+
+.no-wrap {
+    white-space: nowrap
+}
+
+.custom-navbar {
+    background: linear-gradient(90deg, #082567, #4b6cb7);
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all .3s ease
+}
+
+.custom-navbar .navbar-brand span {
+    font-size: 1.4rem;
+    color: #fff;
+    text-shadow: 0 0 4px rgba(255, 255, 255, .5)
+}
+
+.custom-navbar .nav-link {
+    position: relative;
+    color: #e0e0e0 !important;
+    margin: 0 .75rem;
+    font-weight: 500;
+    transition: all .3s ease
+}
+
+.custom-navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #fff;
+    transition: .3s ease
+}
+
+.custom-navbar .nav-link:hover {
+    color: #fff !important;
+    text-shadow: 0 0 5px #fff, 0 0 15px #00e0ff
+}
+
+.custom-navbar .nav-link:hover::after {
+    width: 100%
+}
+
+.custom-navbar .nav-link.active {
+    color: #fff !important;
+    font-weight: 600
+}
+
+.navbar-toggler {
+    background: rgba(255, 255, 255, .1);
+    border: none
+}
+
+.navbar-toggler-icon {
+    filter: invert(1)
+}
+
+@media (max-width: 768px) {
+    .custom-navbar .nav-link {
+        padding: .75rem 1rem;
+        margin: 0;
+        display: block;
+        text-align: center
+    }
+}
+
+.hero-image img {
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center
+}
+
+@media (max-width: 768px) {
+    .hero-image img {
+        max-height: 280px
+    }
+}
+
+.hero-image img {
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center
+}
+
+@media (max-width: 768px) {
+    .hero-image img {
+        max-height: 10px
+    }
+}
+
+.hero-image img {
+    max-height: 450px;
+    object-fit: cover;
+    object-position: center
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        position: relative;
+        width: 100%;
+        min-height: 85vh !important;
+        overflow: hidden;
+        text-align: center;
+    }
+}
+.hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url('/static/img/school.jpg') center/cover no-repeat;
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+    max-width: 800px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.75);
+    letter-spacing: 2px;
+}
+
+.hero-content p, .hero-content h2 {
+    color: #f1f1f1;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.event-section {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.event-card {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 750px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: 100% 100%;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: white;
+    opacity: 0.8;
+}
+
+.carousel-indicators .active {
+    background-color: #003366;
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        padding: 1.25rem;
+    }
+}
+
+.carousel-custom-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 10px;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    padding: 20px 0;
+}
+
+.event-card {
+    flex: 0 0 60%;
+    background: #fff;
+    border-radius: 1rem;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.carousel-nav {
+    background: #007bff;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carousel-nav:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        flex: 0 0 90%;
+    }
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.carousel-window {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+    padding: 20px 0;
+}
+
+.event-card {
+    flex: 0 0 80%;
+    background: white;
+    border-radius: 1rem;
+    padding: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    text-align: center;
+    font-size: 24px;
+}
+
+.carousel-nav {
+    background: #007bff;
+    color: white;
+    font-size: 24px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        flex: 0 0 80%;
+    }
+}
+
+/* размеры фото + скелетов */
+.skeleton-img   { height:900px; }
+
+
+/* чип «участники» */
+.participants-badge  {
+    display:inline-block; background:#0d6efd; color:#fff;
+    padding:.25rem .6rem; font-size:.9rem; border-radius:.4rem;
+}
+
+/* анимация скелета */
+.skeleton{position:relative;overflow:hidden;background:#e4e8ea;border-radius:.4rem}
+.skeleton::after{content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(255,255,255,0)0%,
+    rgba(255,255,255,.6)50%,rgba(255,255,255,0)100%);
+    animation:skeleton-wave 1.2s infinite}
+@keyframes skeleton-wave{0%{transform:translateX(-100%);}100%{transform:translateX(100%);}}
+
+/* Главная карточка */
+.event-card {
+    height: 360px;
+    width: 100%; /* ВАЖНО */
+    max-width: 100%; /* И это */
+    background: #fff;
+}
+
+/* Левая часть — фото */
+.event-card img,
+.skeleton-img {
+    width: 340px;
+    height: 150%;
+    object-fit: cover;
+    background: #ccc;
+}
+
+/* Скелеты */
+.skeleton {
+    position: relative;
+    background: #e4e8ea;
+    border-radius: .4rem;
+    overflow: hidden;
+}
+.skeleton::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+    animation: skeleton-wave 1.2s infinite;
+}
+@keyframes skeleton-wave {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Элементы скелета */
+.skeleton-title { height: 26px; width: 60%; }
+.skeleton-text  { height: 14px; }
+.skeleton-badge { height: 24px; width: 120px; }
+
+.participants {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: .25rem .6rem;
+    border-radius: .4rem;
+    font-size: .9rem;
+}
+.skeleton-img,
+.event-card img {
+    width: 380px;      /* стало больше */
+    height: 100%;
+    object-fit: cover;
+    background: #ccc;
+    border-radius: 0;
+}
+.event-section .carousel-item {
+    padding: 10px 10px;
+    min-height: 400px;
+}
+.event-section {
+    background: linear-gradient(145deg, #6bbfff, #a5dcff);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.event-card {
+    width: 350px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-card:hover {
+    transform: scale(1.02);
+}
+
+.event-card-image {
+    width: 350px;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.event-card-image:hover {
+    transform: scale(1.03);
+}
+
+.bg-gradient {
+    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+}
+
+#carouselCardsTrack {
+    transform: translateX(0);
+    transition: transform 0.5s ease;
+}
+
+.event-card {
+    flex: 0 0 calc(100% / 3 - 12px);  /* 3 карточки с меньшими отступами */
+    max-width: calc(100% / 3 - 12px);
+    min-width: 280px;
+    margin: 0; /* убираем лишние внешние отступы */
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.event-card img {
+    width: 100%;
+    height: 300px; /* Больше изображение */
+    object-fit: cover;
+    display: block;
+}
+
+.event-card .event-caption {
+    padding: 0.5rem 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    font-size: 1.05rem;
+}
+
+.school-events-container {
+    background-color: #f0f8ff; /* Легкий голубой фон, похожий на школьный стиль */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    color: #007bff; /* Школьный синий */
+}
+
+#carouselCardsTrack {
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.event-card {
+    flex: 0 0 calc(100% / 3 - 1rem);
+    min-width: 280px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.event-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.event-card .event-caption {
+    padding: 1rem;
+    background: #007bff;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: white;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #007bff;
+}
+
+.large-event-card img {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.event-caption {
+    background: rgba(0, 0, 0, 0.55);
+    color: white;
+    padding: 1.5rem;
+    font-weight: bold;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+.school-events-container .carousel-item img {
+    object-fit: cover;
+    max-height: 500px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.event-photo {
+    width: 100%;
+    height: 800px;
+    object-fit: cover;
+    object-position: center center; /* или center center */
+    border-radius: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #007bff, #00bfff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rotate-left {
+    transform: perspective(1000px) rotateY(10deg);
+    transition: transform 0.5s ease;
+}
+.rotate-right {
+    transform: perspective(1000px) rotateY(-10deg);
+    transition: transform 0.5s ease;
+}
+.profile-card:hover {
+    transform: perspective(1000px) rotateY(0deg) scale(1.03);
+    z-index: 10;
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.profile-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+.profile-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.profile-card {
+    background: linear-gradient(to right, #2196f3, #21cbf3); /* градиент */
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 12px 32px rgba(33, 150, 243, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(33, 150, 243, 0.3);
+}
+.profile-img {
+    width: 90%;
+    max-width: 240px;
+    height: auto;
+    border-radius: 16px;
+    border: 3px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+    aspect-ratio: 4 / 5;
+}
+
+/* Анимация появления */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #bab6b6 25%, #e0e0e0 50%, #bab6b6 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.teacher-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1rem;
+}
+.text-muted {
+    white-space: normal;
+}
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        align-items: center; /* Центрирует ссылки */
+    }
+
+    .navbar-nav .nav-link {
+        text-align: left; /* Иконка и текст внутри остаются выровнены по левому краю */
+        width: 100%;       /* Чтобы не было обрезания */
+        max-width: 300px;  /* Или 100%, как тебе нужно */
+    }
+}
+.text-glow {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7),
+    0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.skeleton {
+    animation: shimmer 1.2s infinite linear;
+    background: linear-gradient(to right, #bab6b6 8%, #dddddd 18%, #bab6b6 33%);
+    background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
